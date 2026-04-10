@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Acortador de URL</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <div class="container">
+            <h1>Acortador de Enlaces URL</h1>
+            <p>Proyecto sencillo estilo Bit.ly</p>
+
+            <div class="card">
+                <input type="text" id="urlInput" placeholder="Ingresa una URL larga">
+                <button onclick="shortenUrl()">Acortar</button>
+            </div>
+
+            <div class="card" id="resultBox" style="display:none;">
+                <h3>Resultado</h3>
+                <p><strong>URL original:</strong> <span id="originalUrl"></span></p>
+                <p><strong>Código corto:</strong> <span id="shortCode"></span></p>
+                <p><strong>URL corta:</strong> <a id="shortUrl" href="#" target="_blank"></a></p>
+                <button onclick="loadStats()">Ver estadísticas</button>
+            </div>
+
+            <div class="card" id="statsBox" style="display:none;">
+                <h3>Estadísticas</h3>
+                <p><strong>Código:</strong> <span id="statsCode"></span></p>
+                <p><strong>URL original:</strong> <span id="statsOriginalUrl"></span></p>
+                <p><strong>Clics:</strong> <span id="statsClicks"></span></p>
+            </div>
+
+            <div class="card error" id="errorBox" style="display:none;">
+                <p id="errorMessage"></p>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
