@@ -1,0 +1,65 @@
+[
+  {
+    "index": 0,
+    "timestamp": "2026-05-22T20:58:38.016Z",
+    "data": {
+      "tipo": "GENESIS",
+      "mensaje": "Inicio de blockchain para trazabilidad de cadena de frío"
+    },
+    "previousHash": "0",
+    "merkleRoot": "0ec8c45131808d3b0d5fc6a3dfa10270c9d059d5b960e40c043861d1c27e6961",
+    "nonce": 102,
+    "hash": "0035f9acebfda0f75b2884556c7536981e404e1ed02b01c57e4e29e11f9c7831"
+  },
+  {
+    "index": 1,
+    "timestamp": "2026-05-22T20:59:53.882Z",
+    "data": {
+      "tipo": "LECTURA_TEMPERATURA",
+      "lotId": "LOT-1779483556754",
+      "sensorId": "SENSOR-002",
+      "temperature": 5,
+      "unit": "°C",
+      "status": "CORRECTO",
+      "contractMessage": "Temperatura dentro del rango permitido"
+    },
+    "previousHash": "0035f9acebfda0f75b2884556c7536981e404e1ed02b01c57e4e29e11f9c7831",
+    "merkleRoot": "7078688381a60e37156b6d7d69271e9683dd252be81d1d8d900e10ce1456ed2c",
+    "nonce": 162,
+    "hash": "000d4618114b60b4959d54cbe26bb64af65e67deb086dd21d285f2ad98ab76d5"
+  },
+  {
+    "index": 2,
+    "timestamp": "2026-05-22T21:00:00.713Z",
+    "data": {
+      "tipo": "LECTURA_TEMPERATURA",
+      "lotId": "LOT-1779483556754",
+      "sensorId": "SENSOR-002",
+      "temperature": 5.2,
+      "unit": "°C",
+      "status": "CORRECTO",
+      "contractMessage": "Temperatura dentro del rango permitido"
+    },
+    "previousHash": "000d4618114b60b4959d54cbe26bb64af65e67deb086dd21d285f2ad98ab76d5",
+    "merkleRoot": "af1b059934df501c701b798488074baf77c32de578c6db8c6ff4b1f2986eefc3",
+    "nonce": 969,
+    "hash": "00afb9b55eff1e649e2eab5c69ebbe53ab15e433abe091a20e4dd8d764783e29"
+  },
+  {
+    "index": 3,
+    "timestamp": "2026-05-22T21:01:39.962Z",
+    "data": {
+      "tipo": "LECTURA_TEMPERATURA",
+      "lotId": "LOT-1779483681833",
+      "sensorId": "SENSOR-002",
+      "temperature": 10.5,
+      "unit": "°C",
+      "status": "ALERTA",
+      "contractMessage": "Temperatura fuera del rango permitido (1°C a 8°C)"
+    },
+    "previousHash": "00afb9b55eff1e649e2eab5c69ebbe53ab15e433abe091a20e4dd8d764783e29",
+    "merkleRoot": "f1276f9a3717e203f99c1aec73526bd37296638a8c8fc86a8ba71f08b2235f56",
+    "nonce": 289,
+    "hash": "007e736ca97a0ae5392a9b3dc4c6a481d4bfd452a136d5571aaf7310c04d6a71"
+  }
+]

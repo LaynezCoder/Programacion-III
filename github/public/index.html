@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ColdChain Blockchain MVP</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">▦</div>
+      <div>
+        <h1>ColdChain</h1>
+        <p>Blockchain Platform</p>
+      </div>
+    </div>
+
+    <nav>
+      <button class="nav-btn active" data-view="dashboard">Dashboard</button>
+      <button class="nav-btn" data-view="sensores">Sensores</button>
+      <button class="nav-btn" data-view="historial">Historial</button>
+      <button class="nav-btn" data-view="alertas">Alertas</button>
+      <button class="nav-btn" data-view="lotes">Registrar Lote</button>
+      <button class="nav-btn" data-view="integridad">Integridad</button>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <section id="dashboard" class="view active">
+      <h2>Dashboard Principal</h2>
+      <p class="subtitle">Monitoreo en tiempo real de la cadena de frío</p>
+
+      <div class="cards">
+        <div class="card">
+          <span>Temperatura Actual</span>
+          <strong id="currentTemp">--°C</strong>
+          <small>Rango óptimo según lote</small>
+        </div>
+        <div class="card">
+          <span>Estado del Producto</span>
+          <strong id="currentStatus">Sin lectura</strong>
+          <small id="currentLotLabel">Registra una lectura</small>
+        </div>
+        <div class="card">
+          <span>Bloques en Cadena</span>
+          <strong id="totalBlocks">0</strong>
+          <small>Incluye bloque génesis</small>
+        </div>
+        <div class="card">
+          <span>Integridad Blockchain</span>
+          <strong id="chainStatus">Pendiente</strong>
+          <small>Validación de hashes</small>
+        </div>
+      </div>
+
+      <div class="layout">
+        <div class="panel">
+          <h3>Simulación de sensor IoT</h3>
+          <p>Esta sección simula la lectura de un sensor real como DS18B20 dentro de un Stanley o hielera.</p>
+
+          <div class="grid-form">
+            <label>
+              Lote
+              <select id="readingLot"></select>
+            </label>
+
+            <label>
+              Sensor
+              <select id="readingSensor"></select>
+            </label>
+
+            <label>
+              Temperatura °C
+              <input id="readingTemp" type="number" step="0.1" placeholder="Ej: 5.4" />
+            </label>
+          </div>
+
+          <div class="actions">
+            <button id="registerReadingBtn">Registrar lectura</button>
+            <button class="secondary" id="coldBtn">Simular frío 5.2°C</button>
+            <button class="danger" id="hotBtn">Simular falla 10.5°C</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Alertas recientes</h3>
+          <div id="recentAlerts">Sin alertas todavía.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sensores" class="view">
+      <h2>Sensores</h2>
+      <p class="subtitle">Sensores IoT disponibles para el monitoreo de temperatura.</p>
+      <div class="panel">
+        <div id="sensorsList"></div>
+      </div>
+    </section>
+
+    <section id="historial" class="view">
+      <h2>Historial de Lecturas</h2>
+      <p class="subtitle">Registro completo de lecturas con blockchain.</p>
+
+      <div class="panel">
+        <div class="actions top-actions">
+          <button id="reloadChainBtn">Actualizar historial</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Index</th>
+                <th>Fecha</th>
+                <th>Data</th>
+                <th>Merkle Root</th>
+                <th>Previous Hash</th>
+                <th>Hash</th>
+              </tr>
+            </thead>
+            <tbody id="blockchainTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="alertas" class="view">
+      <h2>Alertas</h2>
+      <p class="subtitle">Eventos donde el producto salió del rango permitido.</p>
+      <div class="panel">
+        <div id="alertsList">Sin alertas registradas.</div>
+      </div>
+    </section>
+
+    <section id="lotes" class="view">
+      <h2>Registro de Lote</h2>
+      <p class="subtitle">Registrar nuevo producto o lote en el sistema blockchain.</p>
+
+      <div class="panel form-panel">
+        <h3>Información del Producto</h3>
+        <p>Complete todos los campos requeridos.</p>
+
+        <div class="grid-form">
+          <label>
+            Nombre del Producto *
+            <input id="lotName" placeholder="Ej: Vacuna COVID-19" />
+          </label>
+
+          <label>
+            Tipo de Producto *
+            <select id="lotType">
+              <option value="Vacuna">Vacuna</option>
+              <option value="Alimento">Alimento</option>
+              <option value="Medicamento">Medicamento</option>
+            </select>
+          </label>
+
+          <div class="temp-box full">
+            <h4>Rango de Temperatura</h4>
+            <div class="grid-form">
+              <label>
+                Temperatura Mínima (°C) *
+                <input id="minTemp" type="number" step="0.1" value="2" />
+              </label>
+              <label>
+                Temperatura Máxima (°C) *
+                <input id="maxTemp" type="number" step="0.1" value="8" />
+              </label>
+            </div>
+          </div>
+
+          <label>
+            Sensor Asignado *
+            <select id="lotSensor"></select>
+          </label>
+
+          <label>
+            Ubicación *
+            <input id="location" placeholder="Ej: Termo Stanley - A1" />
+          </label>
+
+          <label class="full">
+            Responsable *
+            <input id="responsible" placeholder="Nombre del responsable" />
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="createLotBtn">Registrar Lote</button>
+          <button class="secondary" id="clearLotBtn">Limpiar Formulario</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Lotes registrados</h3>
+        <div id="lotsList"></div>
+      </div>
+    </section>
+
+    <section id="integridad" class="view">
+      <h2>Validación de Integridad</h2>
+      <p class="subtitle">Prueba de fuego: modificar un registro debe romper la blockchain.</p>
+
+      <div class="panel">
+        <div class="actions">
+          <button id="validateBtn">Validar Blockchain</button>
+          <button class="danger" id="tamperBtn">Alterar último bloque</button>
+        </div>
+        <div id="validationResult" class="result-box">Presiona “Validar Blockchain”.</div>
+      </div>
+
+      <div class="panel">
+        <h3>Prueba manual en base de datos</h3>
+        <ol>
+          <li>Registra un lote.</li>
+          <li>Registra lecturas de temperatura.</li>
+          <li>Valida la blockchain: debe aparecer válida.</li>
+          <li>Abre el archivo <code>data/blockchain.json</code>.</li>
+          <li>Cambia manualmente una temperatura dentro de <code>data.temperature</code>.</li>
+          <li>No cambies el campo <code>hash</code>.</li>
+          <li>Regresa al sistema y presiona <strong>Validar Blockchain</strong>.</li>
+          <li>El sistema marcará la cadena como alterada.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

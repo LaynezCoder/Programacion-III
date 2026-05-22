@@ -1,0 +1,24 @@
+[
+  {
+    "id": "LOT-1779483556754",
+    "name": "COVID 19",
+    "type": "Vacuna",
+    "minTemp": 2,
+    "maxTemp": 8,
+    "sensorId": "SENSOR-002",
+    "location": "back/controllers",
+    "responsible": "juan ramos",
+    "createdAt": "2026-05-22T20:59:16.754Z"
+  },
+  {
+    "id": "LOT-1779483681833",
+    "name": "CARNE",
+    "type": "Alimento",
+    "minTemp": 1,
+    "maxTemp": 8,
+    "sensorId": "SENSOR-002",
+    "location": "back/controllers",
+    "responsible": "juanito ramos",
+    "createdAt": "2026-05-22T21:01:21.833Z"
+  }
+]

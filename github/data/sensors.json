@@ -1,0 +1,16 @@
+[
+  {
+    "id": "SENSOR-001",
+    "nombre": "DS18B20 - ICE SENSOR",
+    "tipo": "Temperatura",
+    "estado": "Activo",
+    "ubicacion": "ICE SENSOR 1"
+  },
+  {
+    "id": "SENSOR-002",
+    "nombre": "DS18B20 - SENSOR",
+    "tipo": "Temperatura",
+    "estado": "Activo",
+    "ubicacion": "SENSOR 2"
+  }
+]
